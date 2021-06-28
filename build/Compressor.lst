@@ -1,0 +1,719 @@
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"Compressor.cpp"
+  13              		.text
+  14              		.section	.text._ZN7daisysp10CompressorD2Ev,"axG",%progbits,_ZN7daisysp10CompressorD5Ev,comdat
+  15              		.align	1
+  16              		.p2align 2,,3
+  17              		.weak	_ZN7daisysp10CompressorD2Ev
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu fpv5-d16
+  24              	_ZN7daisysp10CompressorD2Ev:
+  25              		@ args = 0, pretend = 0, frame = 0
+  26              		@ frame_needed = 0, uses_anonymous_args = 0
+  27              		@ link register save eliminated.
+  28 0000 7047     		bx	lr
+  30              		.weak	_ZN7daisysp10CompressorD1Ev
+  31              		.thumb_set _ZN7daisysp10CompressorD1Ev,_ZN7daisysp10CompressorD2Ev
+  32 0002 00BF     		.section	.text._ZN5daisy9ParameterD2Ev,"axG",%progbits,_ZN5daisy9ParameterD5Ev,comdat
+  33              		.align	1
+  34              		.p2align 2,,3
+  35              		.weak	_ZN5daisy9ParameterD2Ev
+  36              		.syntax unified
+  37              		.thumb
+  38              		.thumb_func
+  39              		.fpu fpv5-d16
+  41              	_ZN5daisy9ParameterD2Ev:
+  42              		@ args = 0, pretend = 0, frame = 0
+  43              		@ frame_needed = 0, uses_anonymous_args = 0
+  44              		@ link register save eliminated.
+  45 0000 7047     		bx	lr
+  47              		.weak	_ZN5daisy9ParameterD1Ev
+  48              		.thumb_set _ZN5daisy9ParameterD1Ev,_ZN5daisy9ParameterD2Ev
+  49 0002 00BF     		.section	.text._ZN5daisy10DaisyPetalD2Ev,"axG",%progbits,_ZN5daisy10DaisyPetalD5Ev,comdat
+  50              		.align	1
+  51              		.p2align 2,,3
+  52              		.weak	_ZN5daisy10DaisyPetalD2Ev
+  53              		.syntax unified
+  54              		.thumb
+  55              		.thumb_func
+  56              		.fpu fpv5-d16
+  58              	_ZN5daisy10DaisyPetalD2Ev:
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+  61              		@ link register save eliminated.
+  62 0000 7047     		bx	lr
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 2
+
+
+  64              		.weak	_ZN5daisy10DaisyPetalD1Ev
+  65              		.thumb_set _ZN5daisy10DaisyPetalD1Ev,_ZN5daisy10DaisyPetalD2Ev
+  66 0002 00BF     		.section	.text._Z13AudioCallbackPPfS0_j,"ax",%progbits
+  67              		.align	1
+  68              		.p2align 2,,3
+  69              		.global	_Z13AudioCallbackPPfS0_j
+  70              		.syntax unified
+  71              		.thumb
+  72              		.thumb_func
+  73              		.fpu fpv5-d16
+  75              	_Z13AudioCallbackPPfS0_j:
+  76              		@ args = 0, pretend = 0, frame = 0
+  77              		@ frame_needed = 0, uses_anonymous_args = 0
+  78 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+  79 0004 0746     		mov	r7, r0
+  80 0006 534C     		ldr	r4, .L18
+  81 0008 5348     		ldr	r0, .L18+4
+  82 000a 8946     		mov	r9, r1
+  83 000c 1646     		mov	r6, r2
+  84 000e BA46     		mov	r10, r7
+  85 0010 2DED028B 		vpush.64	{d8}
+  86 0014 FFF7FEFF 		bl	_ZN5daisy10DaisyPetal21ProcessAnalogControlsEv
+  87 0018 4F48     		ldr	r0, .L18+4
+  88 001a FFF7FEFF 		bl	_ZN5daisy10DaisyPetal22ProcessDigitalControlsEv
+  89 001e DFED4F7A 		vldr.32	s15, .L18+8
+  90 0022 94F83C30 		ldrb	r3, [r4, #60]	@ zero_extendqisi2
+  91 0026 C4ED017A 		vstr.32	s15, [r4, #4]
+  92 002a 6BB1     		cbz	r3, .L6
+  93 002c 94ED006A 		vldr.32	s12, [r4]
+  94 0030 B6EE007A 		vmov.f32	s14, #5.0e-1
+  95 0034 C7EE866A 		vdiv.f32	s13, s15, s12
+  96 0038 77EEE67A 		vsub.f32	s15, s15, s13
+  97 003c F0EEE77A 		vabs.f32	s15, s15
+  98 0040 67EE877A 		vmul.f32	s15, s15, s14
+  99 0044 C4ED047A 		vstr.32	s15, [r4, #16]
+ 100              	.L6:
+ 101 0048 DFED458A 		vldr.32	s17, .L18+12
+ 102 004c B7EE008A 		vmov.f32	s16, #1.0e+0
+ 103 0050 D4ED0E7A 		vldr.32	s15, [r4, #56]
+ 104 0054 94ED087A 		vldr.32	s14, [r4, #32]
+ 105 0058 87EEA80A 		vdiv.f32	s0, s15, s17
+ 106 005c DFED417A 		vldr.32	s15, .L18+16
+ 107 0060 414B     		ldr	r3, .L18+20
+ 108 0062 C4ED028A 		vstr.32	s17, [r4, #8]
+ 109 0066 2360     		str	r3, [r4]	@ float
+ 110 0068 DFF80081 		ldr	r8, .L18+24
+ 111 006c 38EE477A 		vsub.f32	s14, s16, s14
+ 112 0070 27EE277A 		vmul.f32	s14, s14, s15
+ 113 0074 84ED097A 		vstr.32	s14, [r4, #36]
+ 114 0078 B1EE400A 		vneg.f32	s0, s0
+ 115 007c FFF7FEFF 		bl	expf
+ 116 0080 94ED0D7A 		vldr.32	s14, [r4, #52]
+ 117 0084 D4ED027A 		vldr.32	s15, [r4, #8]
+ 118 0088 84ED0A0A 		vstr.32	s0, [r4, #40]
+ 119 008c 87EE270A 		vdiv.f32	s0, s14, s15
+ 120 0090 B1EE400A 		vneg.f32	s0, s0
+ 121 0094 FFF7FEFF 		bl	expf
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 3
+
+
+ 122 0098 D4ED006A 		vldr.32	s13, [r4]
+ 123 009c 94ED0E7A 		vldr.32	s14, [r4, #56]
+ 124 00a0 C8EE267A 		vdiv.f32	s15, s16, s13
+ 125 00a4 84ED080A 		vstr.32	s0, [r4, #32]
+ 126 00a8 C4ED038A 		vstr.32	s17, [r4, #12]
+ 127 00ac C7EE286A 		vdiv.f32	s13, s14, s17
+ 128 00b0 38EE407A 		vsub.f32	s14, s16, s0
+ 129 00b4 77EEC87A 		vsub.f32	s15, s15, s16
+ 130 00b8 67EE877A 		vmul.f32	s15, s15, s14
+ 131 00bc B1EE660A 		vneg.f32	s0, s13
+ 132 00c0 C4ED097A 		vstr.32	s15, [r4, #36]
+ 133 00c4 FFF7FEFF 		bl	expf
+ 134 00c8 2348     		ldr	r0, .L18+4
+ 135 00ca 98F80030 		ldrb	r3, [r8]	@ zero_extendqisi2
+ 136 00ce 90F82521 		ldrb	r2, [r0, #293]	@ zero_extendqisi2
+ 137 00d2 5C30     		adds	r0, r0, #92
+ 138 00d4 84ED0B0A 		vstr.32	s0, [r4, #44]
+ 139 00d8 7F2A     		cmp	r2, #127
+ 140 00da 08BF     		it	eq
+ 141 00dc 83F00103 		eoreq	r3, r3, #1
+ 142 00e0 88F80030 		strb	r3, [r8]
+ 143 00e4 FFF7FEFF 		bl	_ZN5daisy13AnalogControl7ProcessEv
+ 144 00e8 B0EE408A 		vmov.f32	s16, s0
+ 145 00ec 76B3     		cbz	r6, .L5
+ 146 00ee DAF80020 		ldr	r2, [r10]
+ 147 00f2 0025     		movs	r5, #0
+ 148              	.L10:
+ 149 00f4 02EB8502 		add	r2, r2, r5, lsl #2
+ 150 00f8 1648     		ldr	r0, .L18
+ 151 00fa AC00     		lsls	r4, r5, #2
+ 152 00fc 0135     		adds	r5, r5, #1
+ 153 00fe 92ED000A 		vldr.32	s0, [r2]
+ 154 0102 30EE000A 		vadd.f32	s0, s0, s0
+ 155 0106 FFF7FEFF 		bl	_ZN7daisysp10Compressor7ProcessEf
+ 156 010a DAF80020 		ldr	r2, [r10]
+ 157 010e 2346     		mov	r3, r4
+ 158 0110 D9F80410 		ldr	r1, [r9, #4]
+ 159 0114 1419     		adds	r4, r2, r4
+ 160 0116 D9F80070 		ldr	r7, [r9]
+ 161 011a 98F80000 		ldrb	r0, [r8]	@ zero_extendqisi2
+ 162 011e 1944     		add	r1, r1, r3
+ 163 0120 D4ED007A 		vldr.32	s15, [r4]
+ 164 0124 3B44     		add	r3, r3, r7
+ 165 0126 B6EE007A 		vmov.f32	s14, #5.0e-1
+ 166 012a 68EE277A 		vmul.f32	s15, s16, s15
+ 167 012e 77EEA77A 		vadd.f32	s15, s15, s15
+ 168 0132 C1ED007A 		vstr.32	s15, [r1]
+ 169 0136 C3ED007A 		vstr.32	s15, [r3]
+ 170 013a 28B1     		cbz	r0, .L8
+ 171 013c 60EE077A 		vmul.f32	s15, s0, s14
+ 172 0140 C1ED007A 		vstr.32	s15, [r1]
+ 173 0144 C3ED007A 		vstr.32	s15, [r3]
+ 174              	.L8:
+ 175 0148 AE42     		cmp	r6, r5
+ 176 014a D3D1     		bne	.L10
+ 177              	.L5:
+ 178 014c BDEC028B 		vldm	sp!, {d8}
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 4
+
+
+ 179 0150 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 180              	.L19:
+ 181              		.align	2
+ 182              	.L18:
+ 183 0154 00000000 		.word	.LANCHOR1
+ 184 0158 00000000 		.word	.LANCHOR0
+ 185 015c 000020C2 		.word	-1038090240
+ 186 0160 A4707D3F 		.word	1065185444
+ 187 0164 333373BF 		.word	-1082969293
+ 188 0168 0000A041 		.word	1101004800
+ 189 016c 00000000 		.word	.LANCHOR2
+ 191              		.section	.text.startup.main,"ax",%progbits
+ 192              		.align	1
+ 193              		.p2align 2,,3
+ 194              		.global	main
+ 195              		.syntax unified
+ 196              		.thumb
+ 197              		.thumb_func
+ 198              		.fpu fpv5-d16
+ 200              	main:
+ 201              		@ args = 0, pretend = 0, frame = 8
+ 202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203 0000 10B5     		push	{r4, lr}
+ 204 0002 1548     		ldr	r0, .L23
+ 205 0004 82B0     		sub	sp, sp, #8
+ 206 0006 FFF7FEFF 		bl	_ZN5daisy10DaisyPetal15AudioSampleRateEv
+ 207 000a 0021     		movs	r1, #0
+ 208 000c 1248     		ldr	r0, .L23
+ 209 000e 8DED010A 		vstr.32	s0, [sp, #4]	@ int
+ 210 0012 FFF7FEFF 		bl	_ZN5daisy10DaisyPetal4InitEb
+ 211 0016 9DED010A 		vldr.32	s0, [sp, #4]	@ int
+ 212 001a 1048     		ldr	r0, .L23+4
+ 213 001c FFF7FEFF 		bl	_ZN7daisysp10Compressor4InitEf
+ 214 0020 0D48     		ldr	r0, .L23
+ 215 0022 FFF7FEFF 		bl	_ZN5daisy10DaisyPetal8StartAdcEv
+ 216 0026 0E49     		ldr	r1, .L23+8
+ 217 0028 0B48     		ldr	r0, .L23
+ 218 002a 0E4C     		ldr	r4, .L23+12
+ 219 002c FFF7FEFF 		bl	_ZN5daisy10DaisyPetal10StartAudioEPFvPPfS2_jE
+ 220              	.L21:
+ 221 0030 0621     		movs	r1, #6
+ 222 0032 0948     		ldr	r0, .L23
+ 223 0034 FFF7FEFF 		bl	_ZN5daisy10DaisyPetal7DelayMsEj
+ 224 0038 0748     		ldr	r0, .L23
+ 225 003a FFF7FEFF 		bl	_ZN5daisy10DaisyPetal9ClearLedsEv
+ 226 003e 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 227 0040 0021     		movs	r1, #0
+ 228 0042 0548     		ldr	r0, .L23
+ 229 0044 00EE103A 		vmov	s0, r3	@ int
+ 230 0048 B8EE400A 		vcvt.f32.u32	s0, s0
+ 231 004c FFF7FEFF 		bl	_ZN5daisy10DaisyPetal16SetFootswitchLedENS0_13FootswitchLedEf
+ 232 0050 0148     		ldr	r0, .L23
+ 233 0052 FFF7FEFF 		bl	_ZN5daisy10DaisyPetal10UpdateLedsEv
+ 234 0056 EBE7     		b	.L21
+ 235              	.L24:
+ 236              		.align	2
+ 237              	.L23:
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 5
+
+
+ 238 0058 00000000 		.word	.LANCHOR0
+ 239 005c 00000000 		.word	.LANCHOR1
+ 240 0060 00000000 		.word	_Z13AudioCallbackPPfS0_j
+ 241 0064 00000000 		.word	.LANCHOR2
+ 243              		.section	.text.startup._GLOBAL__sub_I_Petal,"ax",%progbits
+ 244              		.align	1
+ 245              		.p2align 2,,3
+ 246              		.syntax unified
+ 247              		.thumb
+ 248              		.thumb_func
+ 249              		.fpu fpv5-d16
+ 251              	_GLOBAL__sub_I_Petal:
+ 252              		@ args = 0, pretend = 0, frame = 0
+ 253              		@ frame_needed = 0, uses_anonymous_args = 0
+ 254 0000 38B5     		push	{r3, r4, r5, lr}
+ 255 0002 174C     		ldr	r4, .L27
+ 256 0004 0023     		movs	r3, #0
+ 257 0006 4FF40072 		mov	r2, #512
+ 258 000a 1649     		ldr	r1, .L27+4
+ 259 000c 04F2B640 		addw	r0, r4, #1206
+ 260 0010 6361     		str	r3, [r4, #20]
+ 261 0012 2362     		str	r3, [r4, #32]
+ 262 0014 C4F8A034 		str	r3, [r4, #1184]
+ 263 0018 FFF7FEFF 		bl	memcpy
+ 264 001c 124D     		ldr	r5, .L27+8
+ 265 001e 2046     		mov	r0, r4
+ 266 0020 124A     		ldr	r2, .L27+12
+ 267 0022 1349     		ldr	r1, .L27+16
+ 268 0024 FFF7FEFF 		bl	__aeabi_atexit
+ 269 0028 104A     		ldr	r2, .L27+12
+ 270 002a 1249     		ldr	r1, .L27+20
+ 271 002c 1248     		ldr	r0, .L27+24
+ 272 002e FFF7FEFF 		bl	__aeabi_atexit
+ 273 0032 2946     		mov	r1, r5
+ 274 0034 0D4A     		ldr	r2, .L27+12
+ 275 0036 1148     		ldr	r0, .L27+28
+ 276 0038 FFF7FEFF 		bl	__aeabi_atexit
+ 277 003c 2946     		mov	r1, r5
+ 278 003e 0B4A     		ldr	r2, .L27+12
+ 279 0040 0F48     		ldr	r0, .L27+32
+ 280 0042 FFF7FEFF 		bl	__aeabi_atexit
+ 281 0046 2946     		mov	r1, r5
+ 282 0048 084A     		ldr	r2, .L27+12
+ 283 004a 0E48     		ldr	r0, .L27+36
+ 284 004c FFF7FEFF 		bl	__aeabi_atexit
+ 285 0050 2946     		mov	r1, r5
+ 286 0052 064A     		ldr	r2, .L27+12
+ 287 0054 0C48     		ldr	r0, .L27+40
+ 288 0056 BDE83840 		pop	{r3, r4, r5, lr}
+ 289 005a FFF7FEBF 		b	__aeabi_atexit
+ 290              	.L28:
+ 291 005e 00BF     		.align	2
+ 292              	.L27:
+ 293 0060 00000000 		.word	.LANCHOR0
+ 294 0064 00000000 		.word	.LANCHOR3
+ 295 0068 00000000 		.word	_ZN5daisy9ParameterD1Ev
+ 296 006c 00000000 		.word	__dso_handle
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 6
+
+
+ 297 0070 00000000 		.word	_ZN5daisy10DaisyPetalD1Ev
+ 298 0074 00000000 		.word	_ZN7daisysp10CompressorD1Ev
+ 299 0078 00000000 		.word	.LANCHOR1
+ 300 007c 00000000 		.word	.LANCHOR4
+ 301 0080 00000000 		.word	.LANCHOR5
+ 302 0084 00000000 		.word	.LANCHOR6
+ 303 0088 00000000 		.word	.LANCHOR7
+ 305              		.section	.init_array,"aw",%init_array
+ 306              		.align	2
+ 307 0000 00000000 		.word	_GLOBAL__sub_I_Petal(target1)
+ 308              		.global	effectOn
+ 309              		.global	releaseParam
+ 310              		.global	attackParam
+ 311              		.global	ratioParam
+ 312              		.global	threshParam
+ 313              		.global	comp
+ 314              		.global	Petal
+ 315              		.section	.rodata
+ 316              		.align	2
+ 317              		.set	.LANCHOR3,. + 0
+ 318              	.LC0:
+ 319 0000 0000     		.short	0
+ 320 0002 0100     		.short	1
+ 321 0004 0100     		.short	1
+ 322 0006 0100     		.short	1
+ 323 0008 0100     		.short	1
+ 324 000a 0100     		.short	1
+ 325 000c 0100     		.short	1
+ 326 000e 0100     		.short	1
+ 327 0010 0100     		.short	1
+ 328 0012 0100     		.short	1
+ 329 0014 0100     		.short	1
+ 330 0016 0100     		.short	1
+ 331 0018 0200     		.short	2
+ 332 001a 0200     		.short	2
+ 333 001c 0200     		.short	2
+ 334 001e 0200     		.short	2
+ 335 0020 0200     		.short	2
+ 336 0022 0200     		.short	2
+ 337 0024 0200     		.short	2
+ 338 0026 0300     		.short	3
+ 339 0028 0300     		.short	3
+ 340 002a 0400     		.short	4
+ 341 002c 0400     		.short	4
+ 342 002e 0500     		.short	5
+ 343 0030 0500     		.short	5
+ 344 0032 0600     		.short	6
+ 345 0034 0700     		.short	7
+ 346 0036 0800     		.short	8
+ 347 0038 0800     		.short	8
+ 348 003a 0900     		.short	9
+ 349 003c 0A00     		.short	10
+ 350 003e 0B00     		.short	11
+ 351 0040 0C00     		.short	12
+ 352 0042 0D00     		.short	13
+ 353 0044 0F00     		.short	15
+ 354 0046 1000     		.short	16
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 7
+
+
+ 355 0048 1100     		.short	17
+ 356 004a 1200     		.short	18
+ 357 004c 1400     		.short	20
+ 358 004e 1500     		.short	21
+ 359 0050 1700     		.short	23
+ 360 0052 1900     		.short	25
+ 361 0054 1A00     		.short	26
+ 362 0056 1C00     		.short	28
+ 363 0058 1E00     		.short	30
+ 364 005a 2000     		.short	32
+ 365 005c 2200     		.short	34
+ 366 005e 2400     		.short	36
+ 367 0060 2600     		.short	38
+ 368 0062 2800     		.short	40
+ 369 0064 2B00     		.short	43
+ 370 0066 2D00     		.short	45
+ 371 0068 3000     		.short	48
+ 372 006a 3200     		.short	50
+ 373 006c 3500     		.short	53
+ 374 006e 3800     		.short	56
+ 375 0070 3B00     		.short	59
+ 376 0072 3E00     		.short	62
+ 377 0074 4100     		.short	65
+ 378 0076 4400     		.short	68
+ 379 0078 4700     		.short	71
+ 380 007a 4B00     		.short	75
+ 381 007c 4E00     		.short	78
+ 382 007e 5200     		.short	82
+ 383 0080 5500     		.short	85
+ 384 0082 5900     		.short	89
+ 385 0084 5D00     		.short	93
+ 386 0086 6100     		.short	97
+ 387 0088 6500     		.short	101
+ 388 008a 6900     		.short	105
+ 389 008c 6E00     		.short	110
+ 390 008e 7200     		.short	114
+ 391 0090 7700     		.short	119
+ 392 0092 7B00     		.short	123
+ 393 0094 8000     		.short	128
+ 394 0096 8500     		.short	133
+ 395 0098 8A00     		.short	138
+ 396 009a 8F00     		.short	143
+ 397 009c 9500     		.short	149
+ 398 009e 9A00     		.short	154
+ 399 00a0 9F00     		.short	159
+ 400 00a2 A500     		.short	165
+ 401 00a4 AB00     		.short	171
+ 402 00a6 B100     		.short	177
+ 403 00a8 B700     		.short	183
+ 404 00aa BD00     		.short	189
+ 405 00ac C300     		.short	195
+ 406 00ae CA00     		.short	202
+ 407 00b0 D000     		.short	208
+ 408 00b2 D700     		.short	215
+ 409 00b4 DE00     		.short	222
+ 410 00b6 E500     		.short	229
+ 411 00b8 EC00     		.short	236
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 8
+
+
+ 412 00ba F300     		.short	243
+ 413 00bc FA00     		.short	250
+ 414 00be 0201     		.short	258
+ 415 00c0 0A01     		.short	266
+ 416 00c2 1101     		.short	273
+ 417 00c4 1901     		.short	281
+ 418 00c6 2201     		.short	290
+ 419 00c8 2A01     		.short	298
+ 420 00ca 3201     		.short	306
+ 421 00cc 3B01     		.short	315
+ 422 00ce 4401     		.short	324
+ 423 00d0 4C01     		.short	332
+ 424 00d2 5501     		.short	341
+ 425 00d4 5F01     		.short	351
+ 426 00d6 6801     		.short	360
+ 427 00d8 7101     		.short	369
+ 428 00da 7B01     		.short	379
+ 429 00dc 8501     		.short	389
+ 430 00de 8F01     		.short	399
+ 431 00e0 9901     		.short	409
+ 432 00e2 A301     		.short	419
+ 433 00e4 AE01     		.short	430
+ 434 00e6 B801     		.short	440
+ 435 00e8 C301     		.short	451
+ 436 00ea CE01     		.short	462
+ 437 00ec D901     		.short	473
+ 438 00ee E501     		.short	485
+ 439 00f0 F001     		.short	496
+ 440 00f2 FC01     		.short	508
+ 441 00f4 0802     		.short	520
+ 442 00f6 1402     		.short	532
+ 443 00f8 2002     		.short	544
+ 444 00fa 2C02     		.short	556
+ 445 00fc 3902     		.short	569
+ 446 00fe 4602     		.short	582
+ 447 0100 5202     		.short	594
+ 448 0102 6002     		.short	608
+ 449 0104 6D02     		.short	621
+ 450 0106 7A02     		.short	634
+ 451 0108 8802     		.short	648
+ 452 010a 9602     		.short	662
+ 453 010c A402     		.short	676
+ 454 010e B202     		.short	690
+ 455 0110 C002     		.short	704
+ 456 0112 CF02     		.short	719
+ 457 0114 DE02     		.short	734
+ 458 0116 ED02     		.short	749
+ 459 0118 FC02     		.short	764
+ 460 011a 0B03     		.short	779
+ 461 011c 1B03     		.short	795
+ 462 011e 2B03     		.short	811
+ 463 0120 3B03     		.short	827
+ 464 0122 4B03     		.short	843
+ 465 0124 5B03     		.short	859
+ 466 0126 6C03     		.short	876
+ 467 0128 7D03     		.short	893
+ 468 012a 8E03     		.short	910
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 9
+
+
+ 469 012c 9F03     		.short	927
+ 470 012e B003     		.short	944
+ 471 0130 C203     		.short	962
+ 472 0132 D403     		.short	980
+ 473 0134 E603     		.short	998
+ 474 0136 F803     		.short	1016
+ 475 0138 0A04     		.short	1034
+ 476 013a 1D04     		.short	1053
+ 477 013c 3004     		.short	1072
+ 478 013e 4304     		.short	1091
+ 479 0140 5604     		.short	1110
+ 480 0142 6A04     		.short	1130
+ 481 0144 7E04     		.short	1150
+ 482 0146 9204     		.short	1170
+ 483 0148 A604     		.short	1190
+ 484 014a BA04     		.short	1210
+ 485 014c CF04     		.short	1231
+ 486 014e E404     		.short	1252
+ 487 0150 F904     		.short	1273
+ 488 0152 0E05     		.short	1294
+ 489 0154 2405     		.short	1316
+ 490 0156 3A05     		.short	1338
+ 491 0158 5005     		.short	1360
+ 492 015a 6605     		.short	1382
+ 493 015c 7C05     		.short	1404
+ 494 015e 9305     		.short	1427
+ 495 0160 AA05     		.short	1450
+ 496 0162 C105     		.short	1473
+ 497 0164 D905     		.short	1497
+ 498 0166 F005     		.short	1520
+ 499 0168 0806     		.short	1544
+ 500 016a 2006     		.short	1568
+ 501 016c 3906     		.short	1593
+ 502 016e 5106     		.short	1617
+ 503 0170 6A06     		.short	1642
+ 504 0172 8306     		.short	1667
+ 505 0174 9D06     		.short	1693
+ 506 0176 B606     		.short	1718
+ 507 0178 D006     		.short	1744
+ 508 017a EA06     		.short	1770
+ 509 017c 0507     		.short	1797
+ 510 017e 1F07     		.short	1823
+ 511 0180 3A07     		.short	1850
+ 512 0182 5507     		.short	1877
+ 513 0184 7107     		.short	1905
+ 514 0186 8C07     		.short	1932
+ 515 0188 A807     		.short	1960
+ 516 018a C407     		.short	1988
+ 517 018c E107     		.short	2017
+ 518 018e FD07     		.short	2045
+ 519 0190 1A08     		.short	2074
+ 520 0192 3708     		.short	2103
+ 521 0194 5508     		.short	2133
+ 522 0196 7208     		.short	2162
+ 523 0198 9008     		.short	2192
+ 524 019a AF08     		.short	2223
+ 525 019c CD08     		.short	2253
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 10
+
+
+ 526 019e EC08     		.short	2284
+ 527 01a0 0B09     		.short	2315
+ 528 01a2 2A09     		.short	2346
+ 529 01a4 4A09     		.short	2378
+ 530 01a6 6A09     		.short	2410
+ 531 01a8 8A09     		.short	2442
+ 532 01aa AA09     		.short	2474
+ 533 01ac CB09     		.short	2507
+ 534 01ae EC09     		.short	2540
+ 535 01b0 0D0A     		.short	2573
+ 536 01b2 2E0A     		.short	2606
+ 537 01b4 500A     		.short	2640
+ 538 01b6 720A     		.short	2674
+ 539 01b8 940A     		.short	2708
+ 540 01ba B70A     		.short	2743
+ 541 01bc DA0A     		.short	2778
+ 542 01be FD0A     		.short	2813
+ 543 01c0 210B     		.short	2849
+ 544 01c2 440B     		.short	2884
+ 545 01c4 680B     		.short	2920
+ 546 01c6 8D0B     		.short	2957
+ 547 01c8 B10B     		.short	2993
+ 548 01ca D60B     		.short	3030
+ 549 01cc FB0B     		.short	3067
+ 550 01ce 210C     		.short	3105
+ 551 01d0 470C     		.short	3143
+ 552 01d2 6D0C     		.short	3181
+ 553 01d4 930C     		.short	3219
+ 554 01d6 BA0C     		.short	3258
+ 555 01d8 E10C     		.short	3297
+ 556 01da 080D     		.short	3336
+ 557 01dc 300D     		.short	3376
+ 558 01de 580D     		.short	3416
+ 559 01e0 800D     		.short	3456
+ 560 01e2 A80D     		.short	3496
+ 561 01e4 D10D     		.short	3537
+ 562 01e6 FA0D     		.short	3578
+ 563 01e8 230E     		.short	3619
+ 564 01ea 4D0E     		.short	3661
+ 565 01ec 770E     		.short	3703
+ 566 01ee A10E     		.short	3745
+ 567 01f0 CC0E     		.short	3788
+ 568 01f2 F70E     		.short	3831
+ 569 01f4 220F     		.short	3874
+ 570 01f6 4E0F     		.short	3918
+ 571 01f8 7A0F     		.short	3962
+ 572 01fa A60F     		.short	4006
+ 573 01fc D20F     		.short	4050
+ 574 01fe FF0F     		.short	4095
+ 575              		.section	.bss.Petal,"aw",%nobits
+ 576              		.align	2
+ 577              		.set	.LANCHOR0,. + 0
+ 580              	Petal:
+ 581 0000 00000000 		.space	1720
+ 581      00000000 
+ 581      00000000 
+ 581      00000000 
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 11
+
+
+ 581      00000000 
+ 582              		.section	.bss.attackParam,"aw",%nobits
+ 583              		.align	2
+ 584              		.set	.LANCHOR6,. + 0
+ 587              	attackParam:
+ 588 0000 00000000 		.space	52
+ 588      00000000 
+ 588      00000000 
+ 588      00000000 
+ 588      00000000 
+ 589              		.section	.bss.comp,"aw",%nobits
+ 590              		.align	2
+ 591              		.set	.LANCHOR1,. + 0
+ 594              	comp:
+ 595 0000 00000000 		.space	64
+ 595      00000000 
+ 595      00000000 
+ 595      00000000 
+ 595      00000000 
+ 596              		.section	.bss.effectOn,"aw",%nobits
+ 597              		.set	.LANCHOR2,. + 0
+ 600              	effectOn:
+ 601 0000 00       		.space	1
+ 602              		.section	.bss.ratioParam,"aw",%nobits
+ 603              		.align	2
+ 604              		.set	.LANCHOR5,. + 0
+ 607              	ratioParam:
+ 608 0000 00000000 		.space	52
+ 608      00000000 
+ 608      00000000 
+ 608      00000000 
+ 608      00000000 
+ 609              		.section	.bss.releaseParam,"aw",%nobits
+ 610              		.align	2
+ 611              		.set	.LANCHOR7,. + 0
+ 614              	releaseParam:
+ 615 0000 00000000 		.space	52
+ 615      00000000 
+ 615      00000000 
+ 615      00000000 
+ 615      00000000 
+ 616              		.section	.bss.threshParam,"aw",%nobits
+ 617              		.align	2
+ 618              		.set	.LANCHOR4,. + 0
+ 621              	threshParam:
+ 622 0000 00000000 		.space	52
+ 622      00000000 
+ 622      00000000 
+ 622      00000000 
+ 622      00000000 
+ 623              		.hidden	__dso_handle
+ 624              		.ident	"GCC: (GNU Arm Embedded Toolchain 10-2020-q4-major) 10.2.1 20201103 (release)"
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Compressor.cpp
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:15     .text._ZN7daisysp10CompressorD2Ev:00000000 $t
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:24     .text._ZN7daisysp10CompressorD2Ev:00000000 _ZN7daisysp10CompressorD2Ev
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:24     .text._ZN7daisysp10CompressorD2Ev:00000000 _ZN7daisysp10CompressorD1Ev
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:33     .text._ZN5daisy9ParameterD2Ev:00000000 $t
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:41     .text._ZN5daisy9ParameterD2Ev:00000000 _ZN5daisy9ParameterD2Ev
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:41     .text._ZN5daisy9ParameterD2Ev:00000000 _ZN5daisy9ParameterD1Ev
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:50     .text._ZN5daisy10DaisyPetalD2Ev:00000000 $t
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:58     .text._ZN5daisy10DaisyPetalD2Ev:00000000 _ZN5daisy10DaisyPetalD2Ev
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:58     .text._ZN5daisy10DaisyPetalD2Ev:00000000 _ZN5daisy10DaisyPetalD1Ev
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:67     .text._Z13AudioCallbackPPfS0_j:00000000 $t
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:75     .text._Z13AudioCallbackPPfS0_j:00000000 _Z13AudioCallbackPPfS0_j
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:183    .text._Z13AudioCallbackPPfS0_j:00000154 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:192    .text.startup.main:00000000 $t
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:200    .text.startup.main:00000000 main
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:238    .text.startup.main:00000058 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:244    .text.startup._GLOBAL__sub_I_Petal:00000000 $t
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:251    .text.startup._GLOBAL__sub_I_Petal:00000000 _GLOBAL__sub_I_Petal
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:293    .text.startup._GLOBAL__sub_I_Petal:00000060 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:306    .init_array:00000000 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:600    .bss.effectOn:00000000 effectOn
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:614    .bss.releaseParam:00000000 releaseParam
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:587    .bss.attackParam:00000000 attackParam
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:607    .bss.ratioParam:00000000 ratioParam
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:621    .bss.threshParam:00000000 threshParam
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:594    .bss.comp:00000000 comp
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:580    .bss.Petal:00000000 Petal
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:316    .rodata:00000000 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:576    .bss.Petal:00000000 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:583    .bss.attackParam:00000000 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:590    .bss.comp:00000000 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:601    .bss.effectOn:00000000 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:603    .bss.ratioParam:00000000 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:610    .bss.releaseParam:00000000 $d
+C:\Users\TT\AppData\Local\Temp\cccfUdZf.s:617    .bss.threshParam:00000000 $d
+                           .group:00000000 _ZN7daisysp10CompressorD5Ev
+                           .group:00000000 _ZN5daisy9ParameterD5Ev
+                           .group:00000000 _ZN5daisy10DaisyPetalD5Ev
+
+UNDEFINED SYMBOLS
+_ZN5daisy10DaisyPetal21ProcessAnalogControlsEv
+_ZN5daisy10DaisyPetal22ProcessDigitalControlsEv
+expf
+_ZN5daisy13AnalogControl7ProcessEv
+_ZN7daisysp10Compressor7ProcessEf
+_ZN5daisy10DaisyPetal15AudioSampleRateEv
+_ZN5daisy10DaisyPetal4InitEb
+_ZN7daisysp10Compressor4InitEf
+_ZN5daisy10DaisyPetal8StartAdcEv
+_ZN5daisy10DaisyPetal10StartAudioEPFvPPfS2_jE
+_ZN5daisy10DaisyPetal7DelayMsEj
+_ZN5daisy10DaisyPetal9ClearLedsEv
+_ZN5daisy10DaisyPetal16SetFootswitchLedENS0_13FootswitchLedEf
+_ZN5daisy10DaisyPetal10UpdateLedsEv
+memcpy
+__aeabi_atexit
+ARM GAS  C:\Users\TT\AppData\Local\Temp\cccfUdZf.s 			page 13
+
+
+__dso_handle
