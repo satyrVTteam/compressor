@@ -3,6 +3,8 @@
 ## Author
 
 Ben Sergentanis
+Modified by me
+Two versions - simplified with fixed controls and original
 
 ## Description
 
@@ -18,9 +20,7 @@ Compressor with optional sidechain input.
 | CTRL 3 | Attack Time | .001 to 1 |
 | CTRL 4 | Release Time | .001 to 1 |
 | In 1 | Audio In | |
-| In 2 | Sidechain In | Only works if sidechain is on |
-| Encoder Press | Sidechain On/Off | |
-| Outs 1-4 | Compressor Out | |
+
 
 ## Diagram
 <img src="https://raw.githubusercontent.com/electro-smith/DaisyExamples/master/patch/Compressor/resources/Compressor.png" alt="Compressor.png" style="width: 100%;"/>
